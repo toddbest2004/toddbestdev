@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en" ng-app="tbd">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>Todd Best's Portfolio</title>
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+        <meta name="viewport" content="width=device-width" />
+        
+        <link href="assets/css/bootstrap.css" rel="stylesheet" />
+        <link href="assets/css/landing-page.css" rel="stylesheet"/>
+        
+        <!--     Fonts and icons     -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300' rel='stylesheet' type='text/css'>
+        <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-animate.js"></script>
+        <script src="app/app.js"></script>
+    </head>
+    <body class="landing-page landing-page1" ng-controller="TbdCtrl">
+        <nav class="navbar navbar-transparent navbar-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <div class="hidden-sm hidden-md hidden-lg small-icon-div">
+                        <div class="small-icon">
+                            <a href="https://www.github.com/toddbest2004"><i class="fa fa-github-square"></i></a>
+                        </div>
+                        <div class="small-icon">
+                            <a href="https://www.linkedin.com/in/toddbest2004"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                        <div class="small-icon">
+                            <a href="Todd_Best_Resume.pdf"><i class="fa fa-file-pdf-o"></i></a>
+                        </div>
+                    </div>
+                    <div class="logo-container" ng-click="currentPage=0">
+                        <div class="logo">
+                            <img src="assets/img/profile-square.png" alt="Todd Best">
+                        </div>
+                        <div class="brand">
+                            Todd Best
+                        </div>
+                    </div>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="example" >
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="https://www.github.com/toddbest2004"> 
+                            <i class="fa fa-github-square"></i>
+                            Github
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/toddbest2004"> 
+                            <i class="fa fa-linkedin"></i>
+                            Linkedin
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Todd_Best_Resume.pdf"> 
+                            <i class="fa fa-file-pdf-o"></i>
+                            Resume
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+        </nav>
+        <div class="wrapper">
+            <div class="parallax filter-gradient blue" data-color="blue">
+                <div class= "container" ng-if="currentPage==0">
+                    <div class="row">
+                        <div class="col-md-5 hidden-sm hidden-xs">
+                            <div class="parallax-image">
+                                <img class="img-circle" src="assets/img/profile2.jpeg"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                            <div class="description">
+                                <h2>Welcome!</h2>
+                                <br>
+                                <h5>I love solving puzzles and creating new things. Programming, and especially web development, is a great opportunity to do both! There is nothing more satisfying than seeing a project evolve from a simple idea into a full, marketable product.</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="skill" ng-repeat="skill in skills track by $index" ng-if="$index==currentSkill" ng-animate="">
+                            <h3>{{skill}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class= "container" ng-if="currentPage==1">
+                    <div class="row">
+                        <div class="col-md-5 hidden-xs">
+                            <div class="parallax-image">
+                                <img src="assets/img/freecell.png" style="margin-top: 20px"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                            <div class="description">
+                                <h2>Freecell</h2>
+                                <p>This was my first project at General Assembly. It is your classic freecell game, and uses JQuery for most of the functionality. It is unique in that it uses DOM traversal to determine gamestate, instead of storing it. It was a great way to practice DOM traversal and recursion functions.</p>
+                                <h5><a href="http://toddbest2004.github.io/Freecell-Project1/">Check it out here.</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class= "container" ng-if="currentPage==2">
+                    <div class="row">
+                        <div class="col-md-5 hidden-xs">
+                            <div class="parallax-image">
+                                <img src="assets/img/dbonyx.png" style="margin-top: 20px"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                            <div class="description">
+                                <h2>DBOnyx</h2>
+                                <p>DBOnyx is my current project. It is a complete rework of my second project at General Assembly. It provides up to date World of Warcraft auction house listings of all servers. It also provides price histories and email price alerts for users looking for items at specific prices. It is currently handling between 3 and 4 million auctions per hour.</p>
+                                <h5><a href="http://www.dbonyx.com/auctions">Check it out here.</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class= "container" ng-if="currentPage==3">
+                    <div class="row">
+                        <div class="col-md-5 hidden-xs">
+                            <div class="parallax-image">
+                                <img src="assets/img/farestart.png" style="margin-top: 20px"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                            <div class="description">
+                                <h2>Farestart</h2>
+                                <p>Farestart was a group project created in one week using Ruby on Rails. It utilizes Uber's api and Lyft's documented fare rates to provide cost estimates to users so that they can choose the lowest fare for their trips. The site also uses geocoding and Google Maps search for faster input and searching.<p>
+                                <h5><a href="http://farestart.herokuapp.com/">Check it out here.</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class= "container" ng-if="currentPage==4">
+                    <div class="row">
+                        <div class="col-md-5 hidden-xs">
+                            <div class="parallax-image">
+                                <img src="assets/img/mercurium.png" style="margin-top: 20px"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                            <div class="description">
+                                <h2>Mercurium</h2>
+                                <p>Mercurium is a turn-based tactical RPG loosely inspired by games such as Final Fantasy Tactics. It uses a hex map instead of the classic grid system.</p>
+                                <h5><a href="http://mercurium.herokuapp.com">Check it out here.</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="section section-gray section-projects">
+                <div class="container text-center">
+                    <h4 class="header-text">Current and Past Projects</h4>
+                    <div class="row">
+                        <div class="project" ng-click="currentPage=1">Freecell</div>
+                        <div class="project" ng-click="currentPage=2">DBOnyx</div>
+                        <div class="project" ng-click="currentPage=3">Fare Start</div>
+                        <div class="project" ng-click="currentPage=4">Mercurium</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
